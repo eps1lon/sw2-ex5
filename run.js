@@ -15,7 +15,7 @@ async function main() {
   const binary = `java -cp "axis-1_4/lib/*:axis-1_4/samples/userguide/example1/*" org.apache.axis.wsdl.Java2WSDL`;
 
   const options = [
-    `-o wp.wsdl`,
+    `-o ${getSnapshotPath("./wp.wsdl")}`,
     `-l"http://localhost:8080/axis/services/WidgetPrice"`,
     `-n "urn:Example6"`,
     `-p"samples.userguide.example6"`,
@@ -29,9 +29,13 @@ async function main() {
 }
 
 async function snapshot({ id, command }) {
-  const snapshotsDir = path.resolve("./__snapshots__");
-  const snapshotFile = path.join(snapshotsDir, `${id}.snapshot`);
-
   const { stdout, stderr } = await exec(command);
-  await fs.writeFile(snapshotFile, JSON.stringify({ stdout, stderr }, null, 2));
+  await fs.writeFile(
+    getSnapshotPath(`${id}.json`),
+    JSON.stringify({ stdout, stderr }, null, 2)
+  );
+}
+
+function getSnapshotPath(filename) {
+  return path.resolve("./__snapshots__", filename);
 }
