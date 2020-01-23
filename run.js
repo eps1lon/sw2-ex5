@@ -12,10 +12,10 @@ main().catch(error => {
 });
 
 async function main() {
-  const binary = `java -cp "axis-1_4/lib/*:axis-1_4/samples/userguide/example1/*" org.apache.axis.wsdl.Java2WSDL`;
+  const binary = `java -cp "axis-1_4/lib/*:axis-1_4/build/classes" org.apache.axis.wsdl.Java2WSDL`;
 
   const options = [
-    `-o ${getSnapshotPath("./wp.wsdl")}`,
+    `-o ${getSnapshotPath({ id: "example6", filename: "wp.wsdl" })}`,
     `-l"http://localhost:8080/axis/services/WidgetPrice"`,
     `-n "urn:Example6"`,
     `-p"samples.userguide.example6"`,
@@ -25,17 +25,23 @@ async function main() {
   const input = options.join(" ");
   const command = `${binary} ${input}`;
 
-  await snapshot({ id: "self", command });
+  await snapshot({ id: "example6", command });
 }
 
 async function snapshot({ id, command }) {
   const { stdout, stderr } = await exec(command);
+
+  try {
+    await fs.mkdir(getSnapshotPath({ id }));
+  } catch {
+    // ignore existing dirs
+  }
   await fs.writeFile(
-    getSnapshotPath(`${id}.json`),
+    getSnapshotPath({ id, filename: "out.json" }),
     JSON.stringify({ stdout, stderr }, null, 2)
   );
 }
 
-function getSnapshotPath(filename) {
-  return path.resolve("./__snapshots__", filename);
+function getSnapshotPath({ id, filename = "" }) {
+  return path.resolve("./__snapshots__", id, filename);
 }
