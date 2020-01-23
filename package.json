@@ -1,0 +1,13 @@
+{
+  "name": "ex5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "12",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node": "^12.14.1"
+  }
+}
