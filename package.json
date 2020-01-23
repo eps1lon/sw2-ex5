@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node run.js"
+  },
   "devDependencies": {
     "@types/node": "12",
     "prettier": "^1.19.1"
