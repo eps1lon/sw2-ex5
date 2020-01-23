@@ -1,0 +1,5 @@
+{
+  "command": "java -cp \"axis-1_4/lib/*:axis-1_4/build/classes\" org.apache.axis.wsdl.Java2WSDL -o /home/eps1lon/Documents/sw2/ex5/__snapshots__/widgetPrice/wp.wsdl -l\"http://localhost:8080/axis/services/WidgetPrice\" -n \"urn:Example6\" -p\"samples.userguide.example6\" \"urn:Example6\" org.apache.axis.wsdl.Java2WSDL",
+  "stdout": "- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.\n",
+  "stderr": ""
+}

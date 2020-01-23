@@ -14,22 +14,38 @@ main().catch(error => {
 async function main() {
   const binary = `java -cp "axis-1_4/lib/*:axis-1_4/build/classes" org.apache.axis.wsdl.Java2WSDL`;
 
-  const options = [
-    `-o ${getSnapshotPath({ id: "example6", filename: "wp.wsdl" })}`,
-    `-l"http://localhost:8080/axis/services/WidgetPrice"`,
-    `-n "urn:Example6"`,
-    `-p"samples.userguide.example6"`,
-    `"urn:Example6"`,
-    `org.apache.axis.wsdl.Java2WSDL`
+  const tests = [
+    {
+      id: "widgetPrice",
+      options: [
+        `-o ${getSnapshotPath({ id: "widgetPrice", filename: "wp.wsdl" })}`,
+        `-l"http://localhost:8080/axis/services/WidgetPrice"`,
+        `-n "urn:Example6"`,
+        `-p"samples.userguide.example6"`,
+        `"urn:Example6"`,
+        `org.apache.axis.wsdl.Java2WSDL`
+      ]
+    }
   ];
-  const input = options.join(" ");
-  const command = `${binary} ${input}`;
 
-  await snapshot({ id: "example6", command });
+  for (let i = 0; i < tests.length; i += 1) {
+    const { id, options } = tests[i];
+    const input = options.join(" ");
+    const command = `${binary} ${input}`;
+
+    await snapshot({ id, command });
+  }
 }
 
 async function snapshot({ id, command }) {
-  const { stdout, stderr } = await exec(command);
+  let stdout;
+  let stderr;
+  let error;
+  try {
+    ({ stdout, stderr } = await exec(command));
+  } catch (caughtError) {
+    error = caughtError;
+  }
 
   try {
     await fs.mkdir(getSnapshotPath({ id }));
@@ -38,7 +54,7 @@ async function snapshot({ id, command }) {
   }
   await fs.writeFile(
     getSnapshotPath({ id, filename: "out.json" }),
-    JSON.stringify({ stdout, stderr }, null, 2)
+    JSON.stringify({ command, stdout, stderr, error }, null, 2)
   );
 }
 
