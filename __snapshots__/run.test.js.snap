@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`help matches 1`] = `undefined`;
+
+exports[`help matches 2`] = `undefined`;
+
+exports[`usage matches 1`] = `undefined`;
+
+exports[`usage matches 2`] = `undefined`;
+
 exports[`widgetPrice matches 1`] = `
 "- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
 "
@@ -93,7 +101,7 @@ exports[`widgetPriceOtherFile matches 2`] = `""`;
 
 exports[`widgetPriceOtherFile matches 3`] = `
 "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
-<wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap2\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
+<wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
 
  <wsdl:types>
   <schema targetNamespace=\\"urn:Example6\\" xmlns=\\"http://www.w3.org/2001/XMLSchema\\">
@@ -132,7 +140,7 @@ exports[`widgetPriceOtherFile matches 3`] = `
 
    <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:Java2WSDL\\">
 
-      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http11\\"/>
+      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
 
       <wsdl:operation name=\\"main\\">
 
@@ -154,7 +162,169 @@ exports[`widgetPriceOtherFile matches 3`] = `
 
    </wsdl:binding>
 
-   <wsdl:service name=\\"Java2WSDLService_Impl\\">
+   <wsdl:service name=\\"Java2WSDLService\\">
+
+      <wsdl:port binding=\\"impl:WidgetPriceSoapBinding\\" name=\\"WidgetPrice\\">
+
+         <wsdlsoap:address location=\\"http://localhost:8080/axis/services/WidgetPrice\\"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
+"
+`;
+
+exports[`widgetPriceStyleDOCUMENT matches 1`] = `undefined`;
+
+exports[`widgetPriceStyleDOCUMENT matches 2`] = `undefined`;
+
+exports[`widgetPriceStyleDOCUMENT matches 3`] = `
+"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
+
+ <wsdl:types>
+  <schema targetNamespace=\\"urn:Example6\\" xmlns=\\"http://www.w3.org/2001/XMLSchema\\">
+   <import namespace=\\"http://schemas.xmlsoap.org/soap/encoding/\\"/>
+   <complexType name=\\"ArrayOf_soapenc_string\\">
+    <complexContent>
+     <restriction base=\\"soapenc:Array\\">
+      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"soapenc:string[]\\"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name=\\"mainRequest\\">
+
+      <wsdl:part name=\\"args\\" type=\\"impl:ArrayOf_soapenc_string\\"/>
+
+   </wsdl:message>
+
+   <wsdl:message name=\\"mainResponse\\">
+
+   </wsdl:message>
+
+   <wsdl:portType name=\\"Java2WSDL\\">
+
+      <wsdl:operation name=\\"main\\" parameterOrder=\\"args\\">
+
+         <wsdl:input message=\\"impl:mainRequest\\" name=\\"mainRequest\\"/>
+
+         <wsdl:output message=\\"impl:mainResponse\\" name=\\"mainResponse\\"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:Java2WSDL\\">
+
+      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
+
+      <wsdl:operation name=\\"main\\">
+
+         <wsdlsoap:operation soapAction=\\"\\"/>
+
+         <wsdl:input name=\\"mainRequest\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:input>
+
+         <wsdl:output name=\\"mainResponse\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name=\\"Java2WSDLService\\">
+
+      <wsdl:port binding=\\"impl:WidgetPriceSoapBinding\\" name=\\"WidgetPrice\\">
+
+         <wsdlsoap:address location=\\"http://localhost:8080/axis/services/WidgetPrice\\"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
+"
+`;
+
+exports[`widgetPriceStyleWSDL matches 1`] = `undefined`;
+
+exports[`widgetPriceStyleWSDL matches 2`] = `undefined`;
+
+exports[`widgetPriceStyleWSDL matches 3`] = `
+"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
+
+ <wsdl:types>
+  <schema targetNamespace=\\"urn:Example6\\" xmlns=\\"http://www.w3.org/2001/XMLSchema\\">
+   <import namespace=\\"http://schemas.xmlsoap.org/soap/encoding/\\"/>
+   <complexType name=\\"ArrayOf_soapenc_string\\">
+    <complexContent>
+     <restriction base=\\"soapenc:Array\\">
+      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"soapenc:string[]\\"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name=\\"mainRequest\\">
+
+      <wsdl:part name=\\"args\\" type=\\"impl:ArrayOf_soapenc_string\\"/>
+
+   </wsdl:message>
+
+   <wsdl:message name=\\"mainResponse\\">
+
+   </wsdl:message>
+
+   <wsdl:portType name=\\"Java2WSDL\\">
+
+      <wsdl:operation name=\\"main\\" parameterOrder=\\"args\\">
+
+         <wsdl:input message=\\"impl:mainRequest\\" name=\\"mainRequest\\"/>
+
+         <wsdl:output message=\\"impl:mainResponse\\" name=\\"mainResponse\\"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:Java2WSDL\\">
+
+      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
+
+      <wsdl:operation name=\\"main\\">
+
+         <wsdlsoap:operation soapAction=\\"\\"/>
+
+         <wsdl:input name=\\"mainRequest\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:input>
+
+         <wsdl:output name=\\"mainResponse\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name=\\"Java2WSDLService\\">
 
       <wsdl:port binding=\\"impl:WidgetPriceSoapBinding\\" name=\\"WidgetPrice\\">
 

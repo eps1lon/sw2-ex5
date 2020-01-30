@@ -6,7 +6,7 @@ const { promisify } = require("util");
 
 const exec = promisify(child_process.exec);
 
-const useModified = true;
+const useModified = false;
 /**
  * modified outputs as _impl.wsdl
  * function removes this suffix in order to diff the files
@@ -41,6 +41,38 @@ const tests = [
         `-l"http://localhost:8080/axis/services/WidgetPrice"`,
         `-n "urn:Example6"`,
         `-p"samples.userguide.example"`,
+        `"urn:Example6"`,
+        `org.apache.axis.wsdl.Java2WSDL`
+      ],
+      files: ["tmp/wp-other.wsdl"]
+    }
+  ],
+  ["usage", { options: [], files: [] }],
+  ["help", { options: ["--help"], files: [] }],
+  [
+    "widgetPriceStyleDOCUMENT",
+    {
+      options: [
+        `-o tmp/wp-other.wsdl`,
+        `-l"http://localhost:8080/axis/services/WidgetPrice"`,
+        `-n "urn:Example6"`,
+        `-p"samples.userguide.example"`,
+        `--style DOCUMENT`,
+        `"urn:Example6"`,
+        `org.apache.axis.wsdl.Java2WSDL`
+      ],
+      files: ["tmp/wp-other.wsdl"]
+    }
+  ],
+  [
+    "widgetPriceStyleWSDL",
+    {
+      options: [
+        `-o tmp/wp-other.wsdl`,
+        `-l"http://localhost:8080/axis/services/WidgetPrice"`,
+        `-n "urn:Example6"`,
+        `-p"samples.userguide.example"`,
+        `--style RPC`,
         `"urn:Example6"`,
         `org.apache.axis.wsdl.Java2WSDL`
       ],
