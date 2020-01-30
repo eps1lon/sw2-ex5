@@ -78,6 +78,19 @@ const tests = [
       ],
       files: ["tmp/wp-other.wsdl"]
     }
+  ],
+  [
+    "ex6-widgetPrice",
+    {
+      options: [
+        `-o tmp/ex6-widgetPrice.wsdl`,
+        `-p"samples.userguide.example6"`,
+        `-l"http://localhost:8080/axis/services/WidgetPrice"`,
+        `-n "urn:Example6"`,
+        `samples.userguide.example6.WidgetPrice`
+      ],
+      files: ["tmp/ex6-widgetPrice.wsdl"]
+    }
   ]
 ];
 
