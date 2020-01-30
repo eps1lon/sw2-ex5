@@ -1,8 +1,10 @@
 const child_process = require("child_process");
 const fs = require("fs").promises;
+const lodash = require("lodash");
 const path = require("path");
 const rimraf = require("rimraf");
 const { promisify } = require("util");
+const xmlParser = require("fast-xml-parser");
 
 const exec = promisify(child_process.exec);
 
@@ -135,8 +137,20 @@ it.each(tests)("%s matches", async (id, { options, files }) => {
       ? getModifiedFileName(expectedFile)
       : expectedFile;
     const xml = await fs.readFile(actualFileName, { encoding: "utf8" });
+    const wsdl = xmlParser.parse(xml, { ignoreAttributes: false });
+    const stableWsdl = deepSortByKeys(wsdl);
 
-    const withoutComments = xml.replace(/<!--[\s\S\n]*?-->/gm, "");
-    expect(withoutComments).toMatchSnapshot(`file ${expectedFile}`);
+    expect(stableWsdl).toMatchSnapshot(`file ${expectedFile}`);
   }
 });
+
+function deepSortByKeys(obj) {
+  if (typeof obj === "object" && obj !== null) {
+    return Object.fromEntries(
+      Object.entries(obj).sort(([a], [b]) => {
+        return a.localeCompare(b);
+      })
+    );
+  }
+  return obj;
+}

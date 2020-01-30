@@ -3,97 +3,151 @@
 exports[`ex5-BeanService matches: actual error 1`] = `undefined`;
 
 exports[`ex5-BeanService matches: file tmp/ex5-beanservice.wsdl 1`] = `
-"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
-<wsdl:definitions targetNamespace=\\"urn:Example5\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example5\\" xmlns:intf=\\"urn:Example5\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
-
- <wsdl:types>
-  <schema targetNamespace=\\"urn:Example5\\" xmlns=\\"http://www.w3.org/2001/XMLSchema\\">
-   <import namespace=\\"http://schemas.xmlsoap.org/soap/encoding/\\"/>
-   <complexType name=\\"ArrayOf_soapenc_string\\">
-    <complexContent>
-     <restriction base=\\"soapenc:Array\\">
-      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"soapenc:string[]\\"/>
-     </restriction>
-    </complexContent>
-   </complexType>
-   <complexType name=\\"ArrayOf_xsd_int\\">
-    <complexContent>
-     <restriction base=\\"soapenc:Array\\">
-      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"xsd:int[]\\"/>
-     </restriction>
-    </complexContent>
-   </complexType>
-   <complexType name=\\"Order\\">
-    <sequence>
-     <element name=\\"customerName\\" nillable=\\"true\\" type=\\"soapenc:string\\"/>
-     <element name=\\"itemCodes\\" nillable=\\"true\\" type=\\"impl:ArrayOf_soapenc_string\\"/>
-     <element name=\\"quantities\\" nillable=\\"true\\" type=\\"impl:ArrayOf_xsd_int\\"/>
-     <element name=\\"shippingAddress\\" nillable=\\"true\\" type=\\"soapenc:string\\"/>
-    </sequence>
-   </complexType>
-  </schema>
- </wsdl:types>
-
-   <wsdl:message name=\\"processOrderResponse\\">
-
-      <wsdl:part name=\\"processOrderReturn\\" type=\\"soapenc:string\\"/>
-
-   </wsdl:message>
-
-   <wsdl:message name=\\"processOrderRequest\\">
-
-      <wsdl:part name=\\"order\\" type=\\"impl:Order\\"/>
-
-   </wsdl:message>
-
-   <wsdl:portType name=\\"BeanService\\">
-
-      <wsdl:operation name=\\"processOrder\\" parameterOrder=\\"order\\">
-
-         <wsdl:input message=\\"impl:processOrderRequest\\" name=\\"processOrderRequest\\"/>
-
-         <wsdl:output message=\\"impl:processOrderResponse\\" name=\\"processOrderResponse\\"/>
-
-      </wsdl:operation>
-
-   </wsdl:portType>
-
-   <wsdl:binding name=\\"ex5SoapBinding\\" type=\\"impl:BeanService\\">
-
-      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
-
-      <wsdl:operation name=\\"processOrder\\">
-
-         <wsdlsoap:operation soapAction=\\"\\"/>
-
-         <wsdl:input name=\\"processOrderRequest\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example5\\" use=\\"encoded\\"/>
-
-         </wsdl:input>
-
-         <wsdl:output name=\\"processOrderResponse\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example5\\" use=\\"encoded\\"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-   </wsdl:binding>
-
-   <wsdl:service name=\\"BeanServiceService\\">
-
-      <wsdl:port binding=\\"impl:ex5SoapBinding\\" name=\\"ex5\\">
-
-         <wsdlsoap:address location=\\"http://localhost:8080/axis/services/ex5\\"/>
-
-      </wsdl:port>
-
-   </wsdl:service>
-
-</wsdl:definitions>
-"
+Object {
+  "wsdl:definitions": Object {
+    "@_targetNamespace": "urn:Example5",
+    "@_xmlns:apachesoap": "http://xml.apache.org/xml-soap",
+    "@_xmlns:impl": "urn:Example5",
+    "@_xmlns:intf": "urn:Example5",
+    "@_xmlns:soapenc": "http://schemas.xmlsoap.org/soap/encoding/",
+    "@_xmlns:wsdl": "http://schemas.xmlsoap.org/wsdl/",
+    "@_xmlns:wsdlsoap": "http://schemas.xmlsoap.org/wsdl/soap/",
+    "@_xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "wsdl:binding": Object {
+      "@_name": "ex5SoapBinding",
+      "@_type": "impl:BeanService",
+      "wsdl:operation": Object {
+        "@_name": "processOrder",
+        "wsdl:input": Object {
+          "@_name": "processOrderRequest",
+          "wsdlsoap:body": Object {
+            "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+            "@_namespace": "urn:Example5",
+            "@_use": "encoded",
+          },
+        },
+        "wsdl:output": Object {
+          "@_name": "processOrderResponse",
+          "wsdlsoap:body": Object {
+            "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+            "@_namespace": "urn:Example5",
+            "@_use": "encoded",
+          },
+        },
+        "wsdlsoap:operation": Object {
+          "@_soapAction": "",
+        },
+      },
+      "wsdlsoap:binding": Object {
+        "@_style": "rpc",
+        "@_transport": "http://schemas.xmlsoap.org/soap/http",
+      },
+    },
+    "wsdl:message": Array [
+      Object {
+        "@_name": "processOrderResponse",
+        "wsdl:part": Object {
+          "@_name": "processOrderReturn",
+          "@_type": "soapenc:string",
+        },
+      },
+      Object {
+        "@_name": "processOrderRequest",
+        "wsdl:part": Object {
+          "@_name": "order",
+          "@_type": "impl:Order",
+        },
+      },
+    ],
+    "wsdl:portType": Object {
+      "@_name": "BeanService",
+      "wsdl:operation": Object {
+        "@_name": "processOrder",
+        "@_parameterOrder": "order",
+        "wsdl:input": Object {
+          "@_message": "impl:processOrderRequest",
+          "@_name": "processOrderRequest",
+        },
+        "wsdl:output": Object {
+          "@_message": "impl:processOrderResponse",
+          "@_name": "processOrderResponse",
+        },
+      },
+    },
+    "wsdl:service": Object {
+      "@_name": "BeanServiceService",
+      "wsdl:port": Object {
+        "@_binding": "impl:ex5SoapBinding",
+        "@_name": "ex5",
+        "wsdlsoap:address": Object {
+          "@_location": "http://localhost:8080/axis/services/ex5",
+        },
+      },
+    },
+    "wsdl:types": Object {
+      "schema": Object {
+        "@_targetNamespace": "urn:Example5",
+        "@_xmlns": "http://www.w3.org/2001/XMLSchema",
+        "complexType": Array [
+          Object {
+            "@_name": "ArrayOf_soapenc_string",
+            "complexContent": Object {
+              "restriction": Object {
+                "@_base": "soapenc:Array",
+                "attribute": Object {
+                  "@_ref": "soapenc:arrayType",
+                  "@_wsdl:arrayType": "soapenc:string[]",
+                },
+              },
+            },
+          },
+          Object {
+            "@_name": "ArrayOf_xsd_int",
+            "complexContent": Object {
+              "restriction": Object {
+                "@_base": "soapenc:Array",
+                "attribute": Object {
+                  "@_ref": "soapenc:arrayType",
+                  "@_wsdl:arrayType": "xsd:int[]",
+                },
+              },
+            },
+          },
+          Object {
+            "@_name": "Order",
+            "sequence": Object {
+              "element": Array [
+                Object {
+                  "@_name": "customerName",
+                  "@_nillable": "true",
+                  "@_type": "soapenc:string",
+                },
+                Object {
+                  "@_name": "itemCodes",
+                  "@_nillable": "true",
+                  "@_type": "impl:ArrayOf_soapenc_string",
+                },
+                Object {
+                  "@_name": "quantities",
+                  "@_nillable": "true",
+                  "@_type": "impl:ArrayOf_xsd_int",
+                },
+                Object {
+                  "@_name": "shippingAddress",
+                  "@_nillable": "true",
+                  "@_type": "soapenc:string",
+                },
+              ],
+            },
+          },
+        ],
+        "import": Object {
+          "@_namespace": "http://schemas.xmlsoap.org/soap/encoding/",
+        },
+      },
+    },
+  },
+}
 `;
 
 exports[`ex5-BeanService matches: stderr 1`] = `""`;
@@ -106,108 +160,143 @@ exports[`ex5-BeanService matches: stdout 1`] = `
 exports[`ex6-widgetPrice matches: actual error 1`] = `undefined`;
 
 exports[`ex6-widgetPrice matches: file tmp/ex6-widgetPrice.wsdl 1`] = `
-"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
-<wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
-
-
-   <wsdl:message name=\\"getWidgetPriceRequest\\">
-
-      <wsdl:part name=\\"in0\\" type=\\"soapenc:string\\"/>
-
-   </wsdl:message>
-
-   <wsdl:message name=\\"setWidgetPriceResponse\\">
-
-   </wsdl:message>
-
-   <wsdl:message name=\\"setWidgetPriceRequest\\">
-
-      <wsdl:part name=\\"in0\\" type=\\"soapenc:string\\"/>
-
-      <wsdl:part name=\\"in1\\" type=\\"soapenc:string\\"/>
-
-   </wsdl:message>
-
-   <wsdl:message name=\\"getWidgetPriceResponse\\">
-
-      <wsdl:part name=\\"getWidgetPriceReturn\\" type=\\"soapenc:string\\"/>
-
-   </wsdl:message>
-
-   <wsdl:portType name=\\"WidgetPrice\\">
-
-      <wsdl:operation name=\\"getWidgetPrice\\" parameterOrder=\\"in0\\">
-
-         <wsdl:input message=\\"impl:getWidgetPriceRequest\\" name=\\"getWidgetPriceRequest\\"/>
-
-         <wsdl:output message=\\"impl:getWidgetPriceResponse\\" name=\\"getWidgetPriceResponse\\"/>
-
-      </wsdl:operation>
-
-      <wsdl:operation name=\\"setWidgetPrice\\" parameterOrder=\\"in0 in1\\">
-
-         <wsdl:input message=\\"impl:setWidgetPriceRequest\\" name=\\"setWidgetPriceRequest\\"/>
-
-         <wsdl:output message=\\"impl:setWidgetPriceResponse\\" name=\\"setWidgetPriceResponse\\"/>
-
-      </wsdl:operation>
-
-   </wsdl:portType>
-
-   <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:WidgetPrice\\">
-
-      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
-
-      <wsdl:operation name=\\"getWidgetPrice\\">
-
-         <wsdlsoap:operation soapAction=\\"\\"/>
-
-         <wsdl:input name=\\"getWidgetPriceRequest\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:input>
-
-         <wsdl:output name=\\"getWidgetPriceResponse\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name=\\"setWidgetPrice\\">
-
-         <wsdlsoap:operation soapAction=\\"\\"/>
-
-         <wsdl:input name=\\"setWidgetPriceRequest\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:input>
-
-         <wsdl:output name=\\"setWidgetPriceResponse\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-   </wsdl:binding>
-
-   <wsdl:service name=\\"WidgetPriceService\\">
-
-      <wsdl:port binding=\\"impl:WidgetPriceSoapBinding\\" name=\\"WidgetPrice\\">
-
-         <wsdlsoap:address location=\\"http://localhost:8080/axis/services/WidgetPrice\\"/>
-
-      </wsdl:port>
-
-   </wsdl:service>
-
-</wsdl:definitions>
-"
+Object {
+  "wsdl:definitions": Object {
+    "@_targetNamespace": "urn:Example6",
+    "@_xmlns:apachesoap": "http://xml.apache.org/xml-soap",
+    "@_xmlns:impl": "urn:Example6",
+    "@_xmlns:intf": "urn:Example6",
+    "@_xmlns:soapenc": "http://schemas.xmlsoap.org/soap/encoding/",
+    "@_xmlns:wsdl": "http://schemas.xmlsoap.org/wsdl/",
+    "@_xmlns:wsdlsoap": "http://schemas.xmlsoap.org/wsdl/soap/",
+    "@_xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "wsdl:binding": Object {
+      "@_name": "WidgetPriceSoapBinding",
+      "@_type": "impl:WidgetPrice",
+      "wsdl:operation": Array [
+        Object {
+          "@_name": "getWidgetPrice",
+          "wsdl:input": Object {
+            "@_name": "getWidgetPriceRequest",
+            "wsdlsoap:body": Object {
+              "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+              "@_namespace": "urn:Example6",
+              "@_use": "encoded",
+            },
+          },
+          "wsdl:output": Object {
+            "@_name": "getWidgetPriceResponse",
+            "wsdlsoap:body": Object {
+              "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+              "@_namespace": "urn:Example6",
+              "@_use": "encoded",
+            },
+          },
+          "wsdlsoap:operation": Object {
+            "@_soapAction": "",
+          },
+        },
+        Object {
+          "@_name": "setWidgetPrice",
+          "wsdl:input": Object {
+            "@_name": "setWidgetPriceRequest",
+            "wsdlsoap:body": Object {
+              "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+              "@_namespace": "urn:Example6",
+              "@_use": "encoded",
+            },
+          },
+          "wsdl:output": Object {
+            "@_name": "setWidgetPriceResponse",
+            "wsdlsoap:body": Object {
+              "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+              "@_namespace": "urn:Example6",
+              "@_use": "encoded",
+            },
+          },
+          "wsdlsoap:operation": Object {
+            "@_soapAction": "",
+          },
+        },
+      ],
+      "wsdlsoap:binding": Object {
+        "@_style": "rpc",
+        "@_transport": "http://schemas.xmlsoap.org/soap/http",
+      },
+    },
+    "wsdl:message": Array [
+      Object {
+        "@_name": "getWidgetPriceRequest",
+        "wsdl:part": Object {
+          "@_name": "in0",
+          "@_type": "soapenc:string",
+        },
+      },
+      Object {
+        "@_name": "setWidgetPriceResponse",
+      },
+      Object {
+        "@_name": "setWidgetPriceRequest",
+        "wsdl:part": Array [
+          Object {
+            "@_name": "in0",
+            "@_type": "soapenc:string",
+          },
+          Object {
+            "@_name": "in1",
+            "@_type": "soapenc:string",
+          },
+        ],
+      },
+      Object {
+        "@_name": "getWidgetPriceResponse",
+        "wsdl:part": Object {
+          "@_name": "getWidgetPriceReturn",
+          "@_type": "soapenc:string",
+        },
+      },
+    ],
+    "wsdl:portType": Object {
+      "@_name": "WidgetPrice",
+      "wsdl:operation": Array [
+        Object {
+          "@_name": "getWidgetPrice",
+          "@_parameterOrder": "in0",
+          "wsdl:input": Object {
+            "@_message": "impl:getWidgetPriceRequest",
+            "@_name": "getWidgetPriceRequest",
+          },
+          "wsdl:output": Object {
+            "@_message": "impl:getWidgetPriceResponse",
+            "@_name": "getWidgetPriceResponse",
+          },
+        },
+        Object {
+          "@_name": "setWidgetPrice",
+          "@_parameterOrder": "in0 in1",
+          "wsdl:input": Object {
+            "@_message": "impl:setWidgetPriceRequest",
+            "@_name": "setWidgetPriceRequest",
+          },
+          "wsdl:output": Object {
+            "@_message": "impl:setWidgetPriceResponse",
+            "@_name": "setWidgetPriceResponse",
+          },
+        },
+      ],
+    },
+    "wsdl:service": Object {
+      "@_name": "WidgetPriceService",
+      "wsdl:port": Object {
+        "@_binding": "impl:WidgetPriceSoapBinding",
+        "@_name": "WidgetPrice",
+        "wsdlsoap:address": Object {
+          "@_location": "http://localhost:8080/axis/services/WidgetPrice",
+        },
+      },
+    },
+  },
+}
 `;
 
 exports[`ex6-widgetPrice matches: stderr 1`] = `""`;
@@ -238,80 +327,106 @@ exports[`usage matches: stdout 1`] = `undefined`;
 exports[`widgetPrice matches: actual error 1`] = `undefined`;
 
 exports[`widgetPrice matches: file tmp/wp.wsdl 1`] = `
-"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
-<wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
-
- <wsdl:types>
-  <schema targetNamespace=\\"urn:Example6\\" xmlns=\\"http://www.w3.org/2001/XMLSchema\\">
-   <import namespace=\\"http://schemas.xmlsoap.org/soap/encoding/\\"/>
-   <complexType name=\\"ArrayOf_soapenc_string\\">
-    <complexContent>
-     <restriction base=\\"soapenc:Array\\">
-      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"soapenc:string[]\\"/>
-     </restriction>
-    </complexContent>
-   </complexType>
-  </schema>
- </wsdl:types>
-
-   <wsdl:message name=\\"mainRequest\\">
-
-      <wsdl:part name=\\"args\\" type=\\"impl:ArrayOf_soapenc_string\\"/>
-
-   </wsdl:message>
-
-   <wsdl:message name=\\"mainResponse\\">
-
-   </wsdl:message>
-
-   <wsdl:portType name=\\"Java2WSDL\\">
-
-      <wsdl:operation name=\\"main\\" parameterOrder=\\"args\\">
-
-         <wsdl:input message=\\"impl:mainRequest\\" name=\\"mainRequest\\"/>
-
-         <wsdl:output message=\\"impl:mainResponse\\" name=\\"mainResponse\\"/>
-
-      </wsdl:operation>
-
-   </wsdl:portType>
-
-   <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:Java2WSDL\\">
-
-      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
-
-      <wsdl:operation name=\\"main\\">
-
-         <wsdlsoap:operation soapAction=\\"\\"/>
-
-         <wsdl:input name=\\"mainRequest\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:input>
-
-         <wsdl:output name=\\"mainResponse\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-   </wsdl:binding>
-
-   <wsdl:service name=\\"Java2WSDLService\\">
-
-      <wsdl:port binding=\\"impl:WidgetPriceSoapBinding\\" name=\\"WidgetPrice\\">
-
-         <wsdlsoap:address location=\\"http://localhost:8080/axis/services/WidgetPrice\\"/>
-
-      </wsdl:port>
-
-   </wsdl:service>
-
-</wsdl:definitions>
-"
+Object {
+  "wsdl:definitions": Object {
+    "@_targetNamespace": "urn:Example6",
+    "@_xmlns:apachesoap": "http://xml.apache.org/xml-soap",
+    "@_xmlns:impl": "urn:Example6",
+    "@_xmlns:intf": "urn:Example6",
+    "@_xmlns:soapenc": "http://schemas.xmlsoap.org/soap/encoding/",
+    "@_xmlns:wsdl": "http://schemas.xmlsoap.org/wsdl/",
+    "@_xmlns:wsdlsoap": "http://schemas.xmlsoap.org/wsdl/soap/",
+    "@_xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "wsdl:binding": Object {
+      "@_name": "WidgetPriceSoapBinding",
+      "@_type": "impl:Java2WSDL",
+      "wsdl:operation": Object {
+        "@_name": "main",
+        "wsdl:input": Object {
+          "@_name": "mainRequest",
+          "wsdlsoap:body": Object {
+            "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+            "@_namespace": "urn:Example6",
+            "@_use": "encoded",
+          },
+        },
+        "wsdl:output": Object {
+          "@_name": "mainResponse",
+          "wsdlsoap:body": Object {
+            "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+            "@_namespace": "urn:Example6",
+            "@_use": "encoded",
+          },
+        },
+        "wsdlsoap:operation": Object {
+          "@_soapAction": "",
+        },
+      },
+      "wsdlsoap:binding": Object {
+        "@_style": "rpc",
+        "@_transport": "http://schemas.xmlsoap.org/soap/http",
+      },
+    },
+    "wsdl:message": Array [
+      Object {
+        "@_name": "mainRequest",
+        "wsdl:part": Object {
+          "@_name": "args",
+          "@_type": "impl:ArrayOf_soapenc_string",
+        },
+      },
+      Object {
+        "@_name": "mainResponse",
+      },
+    ],
+    "wsdl:portType": Object {
+      "@_name": "Java2WSDL",
+      "wsdl:operation": Object {
+        "@_name": "main",
+        "@_parameterOrder": "args",
+        "wsdl:input": Object {
+          "@_message": "impl:mainRequest",
+          "@_name": "mainRequest",
+        },
+        "wsdl:output": Object {
+          "@_message": "impl:mainResponse",
+          "@_name": "mainResponse",
+        },
+      },
+    },
+    "wsdl:service": Object {
+      "@_name": "Java2WSDLService",
+      "wsdl:port": Object {
+        "@_binding": "impl:WidgetPriceSoapBinding",
+        "@_name": "WidgetPrice",
+        "wsdlsoap:address": Object {
+          "@_location": "http://localhost:8080/axis/services/WidgetPrice",
+        },
+      },
+    },
+    "wsdl:types": Object {
+      "schema": Object {
+        "@_targetNamespace": "urn:Example6",
+        "@_xmlns": "http://www.w3.org/2001/XMLSchema",
+        "complexType": Object {
+          "@_name": "ArrayOf_soapenc_string",
+          "complexContent": Object {
+            "restriction": Object {
+              "@_base": "soapenc:Array",
+              "attribute": Object {
+                "@_ref": "soapenc:arrayType",
+                "@_wsdl:arrayType": "soapenc:string[]",
+              },
+            },
+          },
+        },
+        "import": Object {
+          "@_namespace": "http://schemas.xmlsoap.org/soap/encoding/",
+        },
+      },
+    },
+  },
+}
 `;
 
 exports[`widgetPrice matches: stderr 1`] = `""`;
@@ -324,80 +439,106 @@ exports[`widgetPrice matches: stdout 1`] = `
 exports[`widgetPriceOtherFile matches: actual error 1`] = `undefined`;
 
 exports[`widgetPriceOtherFile matches: file tmp/wp-other.wsdl 1`] = `
-"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
-<wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
-
- <wsdl:types>
-  <schema targetNamespace=\\"urn:Example6\\" xmlns=\\"http://www.w3.org/2001/XMLSchema\\">
-   <import namespace=\\"http://schemas.xmlsoap.org/soap/encoding/\\"/>
-   <complexType name=\\"ArrayOf_soapenc_string\\">
-    <complexContent>
-     <restriction base=\\"soapenc:Array\\">
-      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"soapenc:string[]\\"/>
-     </restriction>
-    </complexContent>
-   </complexType>
-  </schema>
- </wsdl:types>
-
-   <wsdl:message name=\\"mainRequest\\">
-
-      <wsdl:part name=\\"args\\" type=\\"impl:ArrayOf_soapenc_string\\"/>
-
-   </wsdl:message>
-
-   <wsdl:message name=\\"mainResponse\\">
-
-   </wsdl:message>
-
-   <wsdl:portType name=\\"Java2WSDL\\">
-
-      <wsdl:operation name=\\"main\\" parameterOrder=\\"args\\">
-
-         <wsdl:input message=\\"impl:mainRequest\\" name=\\"mainRequest\\"/>
-
-         <wsdl:output message=\\"impl:mainResponse\\" name=\\"mainResponse\\"/>
-
-      </wsdl:operation>
-
-   </wsdl:portType>
-
-   <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:Java2WSDL\\">
-
-      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
-
-      <wsdl:operation name=\\"main\\">
-
-         <wsdlsoap:operation soapAction=\\"\\"/>
-
-         <wsdl:input name=\\"mainRequest\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:input>
-
-         <wsdl:output name=\\"mainResponse\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-   </wsdl:binding>
-
-   <wsdl:service name=\\"Java2WSDLService\\">
-
-      <wsdl:port binding=\\"impl:WidgetPriceSoapBinding\\" name=\\"WidgetPrice\\">
-
-         <wsdlsoap:address location=\\"http://localhost:8080/axis/services/WidgetPrice\\"/>
-
-      </wsdl:port>
-
-   </wsdl:service>
-
-</wsdl:definitions>
-"
+Object {
+  "wsdl:definitions": Object {
+    "@_targetNamespace": "urn:Example6",
+    "@_xmlns:apachesoap": "http://xml.apache.org/xml-soap",
+    "@_xmlns:impl": "urn:Example6",
+    "@_xmlns:intf": "urn:Example6",
+    "@_xmlns:soapenc": "http://schemas.xmlsoap.org/soap/encoding/",
+    "@_xmlns:wsdl": "http://schemas.xmlsoap.org/wsdl/",
+    "@_xmlns:wsdlsoap": "http://schemas.xmlsoap.org/wsdl/soap/",
+    "@_xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "wsdl:binding": Object {
+      "@_name": "WidgetPriceSoapBinding",
+      "@_type": "impl:Java2WSDL",
+      "wsdl:operation": Object {
+        "@_name": "main",
+        "wsdl:input": Object {
+          "@_name": "mainRequest",
+          "wsdlsoap:body": Object {
+            "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+            "@_namespace": "urn:Example6",
+            "@_use": "encoded",
+          },
+        },
+        "wsdl:output": Object {
+          "@_name": "mainResponse",
+          "wsdlsoap:body": Object {
+            "@_encodingStyle": "http://schemas.xmlsoap.org/soap/encoding/",
+            "@_namespace": "urn:Example6",
+            "@_use": "encoded",
+          },
+        },
+        "wsdlsoap:operation": Object {
+          "@_soapAction": "",
+        },
+      },
+      "wsdlsoap:binding": Object {
+        "@_style": "rpc",
+        "@_transport": "http://schemas.xmlsoap.org/soap/http",
+      },
+    },
+    "wsdl:message": Array [
+      Object {
+        "@_name": "mainRequest",
+        "wsdl:part": Object {
+          "@_name": "args",
+          "@_type": "impl:ArrayOf_soapenc_string",
+        },
+      },
+      Object {
+        "@_name": "mainResponse",
+      },
+    ],
+    "wsdl:portType": Object {
+      "@_name": "Java2WSDL",
+      "wsdl:operation": Object {
+        "@_name": "main",
+        "@_parameterOrder": "args",
+        "wsdl:input": Object {
+          "@_message": "impl:mainRequest",
+          "@_name": "mainRequest",
+        },
+        "wsdl:output": Object {
+          "@_message": "impl:mainResponse",
+          "@_name": "mainResponse",
+        },
+      },
+    },
+    "wsdl:service": Object {
+      "@_name": "Java2WSDLService",
+      "wsdl:port": Object {
+        "@_binding": "impl:WidgetPriceSoapBinding",
+        "@_name": "WidgetPrice",
+        "wsdlsoap:address": Object {
+          "@_location": "http://localhost:8080/axis/services/WidgetPrice",
+        },
+      },
+    },
+    "wsdl:types": Object {
+      "schema": Object {
+        "@_targetNamespace": "urn:Example6",
+        "@_xmlns": "http://www.w3.org/2001/XMLSchema",
+        "complexType": Object {
+          "@_name": "ArrayOf_soapenc_string",
+          "complexContent": Object {
+            "restriction": Object {
+              "@_base": "soapenc:Array",
+              "attribute": Object {
+                "@_ref": "soapenc:arrayType",
+                "@_wsdl:arrayType": "soapenc:string[]",
+              },
+            },
+          },
+        },
+        "import": Object {
+          "@_namespace": "http://schemas.xmlsoap.org/soap/encoding/",
+        },
+      },
+    },
+  },
+}
 `;
 
 exports[`widgetPriceOtherFile matches: stderr 1`] = `""`;
