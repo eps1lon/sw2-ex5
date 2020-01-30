@@ -45,17 +45,17 @@ Object {
     },
     "wsdl:message": Array [
       Object {
-        "@_name": "processOrderResponse",
-        "wsdl:part": Object {
-          "@_name": "processOrderReturn",
-          "@_type": "soapenc:string",
-        },
-      },
-      Object {
         "@_name": "processOrderRequest",
         "wsdl:part": Object {
           "@_name": "order",
           "@_type": "impl:Order",
+        },
+      },
+      Object {
+        "@_name": "processOrderResponse",
+        "wsdl:part": Object {
+          "@_name": "processOrderReturn",
+          "@_type": "soapenc:string",
         },
       },
     ],
@@ -233,7 +233,11 @@ Object {
         },
       },
       Object {
-        "@_name": "setWidgetPriceResponse",
+        "@_name": "getWidgetPriceResponse",
+        "wsdl:part": Object {
+          "@_name": "getWidgetPriceReturn",
+          "@_type": "soapenc:string",
+        },
       },
       Object {
         "@_name": "setWidgetPriceRequest",
@@ -249,11 +253,7 @@ Object {
         ],
       },
       Object {
-        "@_name": "getWidgetPriceResponse",
-        "wsdl:part": Object {
-          "@_name": "getWidgetPriceReturn",
-          "@_type": "soapenc:string",
-        },
+        "@_name": "setWidgetPriceResponse",
       },
     ],
     "wsdl:portType": Object {

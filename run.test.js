@@ -138,18 +138,32 @@ it.each(tests)("%s matches", async (id, { options, files }) => {
       : expectedFile;
     const xml = await fs.readFile(actualFileName, { encoding: "utf8" });
     const wsdl = xmlParser.parse(xml, { ignoreAttributes: false });
-    const stableWsdl = deepSortByKeys(wsdl);
+    const stableWsdl = deepSortStable(wsdl);
 
     expect(stableWsdl).toMatchSnapshot(`file ${expectedFile}`);
   }
 });
 
-function deepSortByKeys(obj) {
+/**
+ * sorts objects by their keys
+ * sorts arrays by their JSON.stringified value
+ * all deep
+ */
+function deepSortStable(obj) {
+  if (Array.isArray(obj)) {
+    return obj
+      .map(deepSortStable)
+      .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
+  }
   if (typeof obj === "object" && obj !== null) {
     return Object.fromEntries(
-      Object.entries(obj).sort(([a], [b]) => {
-        return a.localeCompare(b);
-      })
+      Object.entries(obj)
+        .map(([key, value]) => {
+          return [key, deepSortStable(value)];
+        })
+        .sort(([a], [b]) => {
+          return a.localeCompare(b);
+        })
     );
   }
   return obj;
