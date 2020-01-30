@@ -1,6 +1,7 @@
 const child_process = require("child_process");
 const fs = require("fs").promises;
 const path = require("path");
+const rimraf = require("rimraf");
 const { promisify } = require("util");
 
 const exec = promisify(child_process.exec);
@@ -21,6 +22,11 @@ const tests = [
     }
   ]
 ];
+
+beforeAll(async () => {
+  rimraf.sync("tmp");
+  await fs.mkdir("tmp");
+});
 
 it.each(tests)("%s matches", async (id, { options, files }) => {
   const binary = `java -cp "axis-1_4/lib/*:axis-1_4/build/classes" org.apache.axis.wsdl.Java2WSDL`;
