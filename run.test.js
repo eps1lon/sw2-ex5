@@ -91,6 +91,19 @@ const tests = [
       ],
       files: ["tmp/ex6-widgetPrice.wsdl"]
     }
+  ],
+  [
+    "ex5-BeanService",
+    {
+      options: [
+        `-o tmp/ex5-beanservice.wsdl`,
+        `-p"samples.userguide.example5"`,
+        `-l"http://localhost:8080/axis/services/ex5"`,
+        `-n "urn:Example5"`,
+        `samples.userguide.example5.BeanService`
+      ],
+      files: ["tmp/ex5-beanservice.wsdl"]
+    }
   ]
 ];
 

@@ -1,5 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ex5-BeanService matches: actual error 1`] = `undefined`;
+
+exports[`ex5-BeanService matches: file tmp/ex5-beanservice.wsdl 1`] = `
+"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<wsdl:definitions targetNamespace=\\"urn:Example5\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example5\\" xmlns:intf=\\"urn:Example5\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
+
+ <wsdl:types>
+  <schema targetNamespace=\\"urn:Example5\\" xmlns=\\"http://www.w3.org/2001/XMLSchema\\">
+   <import namespace=\\"http://schemas.xmlsoap.org/soap/encoding/\\"/>
+   <complexType name=\\"ArrayOf_soapenc_string\\">
+    <complexContent>
+     <restriction base=\\"soapenc:Array\\">
+      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"soapenc:string[]\\"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name=\\"ArrayOf_xsd_int\\">
+    <complexContent>
+     <restriction base=\\"soapenc:Array\\">
+      <attribute ref=\\"soapenc:arrayType\\" wsdl:arrayType=\\"xsd:int[]\\"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name=\\"Order\\">
+    <sequence>
+     <element name=\\"customerName\\" nillable=\\"true\\" type=\\"soapenc:string\\"/>
+     <element name=\\"itemCodes\\" nillable=\\"true\\" type=\\"impl:ArrayOf_soapenc_string\\"/>
+     <element name=\\"quantities\\" nillable=\\"true\\" type=\\"impl:ArrayOf_xsd_int\\"/>
+     <element name=\\"shippingAddress\\" nillable=\\"true\\" type=\\"soapenc:string\\"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name=\\"processOrderResponse\\">
+
+      <wsdl:part name=\\"processOrderReturn\\" type=\\"soapenc:string\\"/>
+
+   </wsdl:message>
+
+   <wsdl:message name=\\"processOrderRequest\\">
+
+      <wsdl:part name=\\"order\\" type=\\"impl:Order\\"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name=\\"BeanService\\">
+
+      <wsdl:operation name=\\"processOrder\\" parameterOrder=\\"order\\">
+
+         <wsdl:input message=\\"impl:processOrderRequest\\" name=\\"processOrderRequest\\"/>
+
+         <wsdl:output message=\\"impl:processOrderResponse\\" name=\\"processOrderResponse\\"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name=\\"ex5SoapBinding\\" type=\\"impl:BeanService\\">
+
+      <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
+
+      <wsdl:operation name=\\"processOrder\\">
+
+         <wsdlsoap:operation soapAction=\\"\\"/>
+
+         <wsdl:input name=\\"processOrderRequest\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example5\\" use=\\"encoded\\"/>
+
+         </wsdl:input>
+
+         <wsdl:output name=\\"processOrderResponse\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example5\\" use=\\"encoded\\"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name=\\"BeanServiceService\\">
+
+      <wsdl:port binding=\\"impl:ex5SoapBinding\\" name=\\"ex5\\">
+
+         <wsdlsoap:address location=\\"http://localhost:8080/axis/services/ex5\\"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
+"
+`;
+
+exports[`ex5-BeanService matches: stderr 1`] = `""`;
+
+exports[`ex5-BeanService matches: stdout 1`] = `
+"- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
+"
+`;
+
 exports[`ex6-widgetPrice matches: actual error 1`] = `undefined`;
 
 exports[`ex6-widgetPrice matches: file tmp/ex6-widgetPrice.wsdl 1`] = `
@@ -33,14 +136,6 @@ exports[`ex6-widgetPrice matches: file tmp/ex6-widgetPrice.wsdl 1`] = `
 
    <wsdl:portType name=\\"WidgetPrice\\">
 
-      <wsdl:operation name=\\"setWidgetPrice\\" parameterOrder=\\"in0 in1\\">
-
-         <wsdl:input message=\\"impl:setWidgetPriceRequest\\" name=\\"setWidgetPriceRequest\\"/>
-
-         <wsdl:output message=\\"impl:setWidgetPriceResponse\\" name=\\"setWidgetPriceResponse\\"/>
-
-      </wsdl:operation>
-
       <wsdl:operation name=\\"getWidgetPrice\\" parameterOrder=\\"in0\\">
 
          <wsdl:input message=\\"impl:getWidgetPriceRequest\\" name=\\"getWidgetPriceRequest\\"/>
@@ -49,29 +144,19 @@ exports[`ex6-widgetPrice matches: file tmp/ex6-widgetPrice.wsdl 1`] = `
 
       </wsdl:operation>
 
+      <wsdl:operation name=\\"setWidgetPrice\\" parameterOrder=\\"in0 in1\\">
+
+         <wsdl:input message=\\"impl:setWidgetPriceRequest\\" name=\\"setWidgetPriceRequest\\"/>
+
+         <wsdl:output message=\\"impl:setWidgetPriceResponse\\" name=\\"setWidgetPriceResponse\\"/>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:WidgetPrice\\">
 
       <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
-
-      <wsdl:operation name=\\"setWidgetPrice\\">
-
-         <wsdlsoap:operation soapAction=\\"\\"/>
-
-         <wsdl:input name=\\"setWidgetPriceRequest\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:input>
-
-         <wsdl:output name=\\"setWidgetPriceResponse\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name=\\"getWidgetPrice\\">
 
@@ -84,6 +169,24 @@ exports[`ex6-widgetPrice matches: file tmp/ex6-widgetPrice.wsdl 1`] = `
          </wsdl:input>
 
          <wsdl:output name=\\"getWidgetPriceResponse\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name=\\"setWidgetPrice\\">
+
+         <wsdlsoap:operation soapAction=\\"\\"/>
+
+         <wsdl:input name=\\"setWidgetPriceRequest\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:input>
+
+         <wsdl:output name=\\"setWidgetPriceResponse\\">
 
             <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
 
