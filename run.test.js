@@ -61,7 +61,7 @@ const tests = [
         `"urn:Example6"`,
         `org.apache.axis.wsdl.Java2WSDL`
       ],
-      files: ["tmp/wp-other.wsdl"]
+      files: []
     }
   ],
   [
@@ -76,7 +76,7 @@ const tests = [
         `"urn:Example6"`,
         `org.apache.axis.wsdl.Java2WSDL`
       ],
-      files: ["tmp/wp-other.wsdl"]
+      files: []
     }
   ],
   [
@@ -94,7 +94,7 @@ const tests = [
   ]
 ];
 
-beforeAll(async () => {
+beforeEach(async () => {
   rimraf.sync("tmp");
   await fs.mkdir("tmp");
 });
