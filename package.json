@@ -1,11 +1,9 @@
 {
   "name": "ex5",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node run.js",
-    "test": "jest"
+    "start": "jest"
   },
   "devDependencies": {
     "@types/node": "12",

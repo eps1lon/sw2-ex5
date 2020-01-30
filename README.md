@@ -11,5 +11,5 @@ $ yarn start
 
 ## Adding tests
 
-1. in `run.js` find the `tests` array
-2. add a test with `interface Test { id: string, options: string[] }`
+1. in `run.test.js` find the `tests` array
+2. add a test with `type Test = [name, { options. string[], files: string[] }]`
