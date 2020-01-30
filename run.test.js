@@ -114,6 +114,7 @@ it.each(tests)("%s matches", async (id, { options, files }) => {
     error = caughtError;
   }
 
+  expect(error).toMatchSnapshot();
   expect(stdout).toMatchSnapshot();
   expect(stderr).toMatchSnapshot();
   for (const expectedFile of files) {
