@@ -7,7 +7,7 @@ const xmlParser = require("fast-xml-parser");
 
 const exec = promisify(child_process.exec);
 
-const useModified = false;
+const useModified = true;
 /**
  * modified outputs as _impl.wsdl
  * function removes this suffix in order to diff the files
