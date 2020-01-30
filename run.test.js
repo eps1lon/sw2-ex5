@@ -114,9 +114,9 @@ it.each(tests)("%s matches", async (id, { options, files }) => {
     error = caughtError;
   }
 
-  expect(error).toMatchSnapshot();
-  expect(stdout).toMatchSnapshot();
-  expect(stderr).toMatchSnapshot();
+  expect(error).toMatchSnapshot("actual error");
+  expect(stdout).toMatchSnapshot("stdout");
+  expect(stderr).toMatchSnapshot("stderr");
   for (const expectedFile of files) {
     const actualFileName = useModified
       ? getModifiedFileName(expectedFile)
@@ -124,6 +124,6 @@ it.each(tests)("%s matches", async (id, { options, files }) => {
     const xml = await fs.readFile(actualFileName, { encoding: "utf8" });
 
     const withoutComments = xml.replace(/<!--[\s\S\n]*?-->/gm, "");
-    expect(withoutComments).toMatchSnapshot();
+    expect(withoutComments).toMatchSnapshot(`file ${expectedFile}`);
   }
 });

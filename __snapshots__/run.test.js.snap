@@ -1,15 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ex6-widgetPrice matches 1`] = `undefined`;
+exports[`ex6-widgetPrice matches: actual error 1`] = `undefined`;
 
-exports[`ex6-widgetPrice matches 2`] = `
-"- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
-"
-`;
-
-exports[`ex6-widgetPrice matches 3`] = `""`;
-
-exports[`ex6-widgetPrice matches 4`] = `
+exports[`ex6-widgetPrice matches: file tmp/ex6-widgetPrice.wsdl 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
 
@@ -40,14 +33,6 @@ exports[`ex6-widgetPrice matches 4`] = `
 
    <wsdl:portType name=\\"WidgetPrice\\">
 
-      <wsdl:operation name=\\"getWidgetPrice\\" parameterOrder=\\"in0\\">
-
-         <wsdl:input message=\\"impl:getWidgetPriceRequest\\" name=\\"getWidgetPriceRequest\\"/>
-
-         <wsdl:output message=\\"impl:getWidgetPriceResponse\\" name=\\"getWidgetPriceResponse\\"/>
-
-      </wsdl:operation>
-
       <wsdl:operation name=\\"setWidgetPrice\\" parameterOrder=\\"in0 in1\\">
 
          <wsdl:input message=\\"impl:setWidgetPriceRequest\\" name=\\"setWidgetPriceRequest\\"/>
@@ -56,29 +41,19 @@ exports[`ex6-widgetPrice matches 4`] = `
 
       </wsdl:operation>
 
+      <wsdl:operation name=\\"getWidgetPrice\\" parameterOrder=\\"in0\\">
+
+         <wsdl:input message=\\"impl:getWidgetPriceRequest\\" name=\\"getWidgetPriceRequest\\"/>
+
+         <wsdl:output message=\\"impl:getWidgetPriceResponse\\" name=\\"getWidgetPriceResponse\\"/>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name=\\"WidgetPriceSoapBinding\\" type=\\"impl:WidgetPrice\\">
 
       <wsdlsoap:binding style=\\"rpc\\" transport=\\"http://schemas.xmlsoap.org/soap/http\\"/>
-
-      <wsdl:operation name=\\"getWidgetPrice\\">
-
-         <wsdlsoap:operation soapAction=\\"\\"/>
-
-         <wsdl:input name=\\"getWidgetPriceRequest\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:input>
-
-         <wsdl:output name=\\"getWidgetPriceResponse\\">
-
-            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name=\\"setWidgetPrice\\">
 
@@ -91,6 +66,24 @@ exports[`ex6-widgetPrice matches 4`] = `
          </wsdl:input>
 
          <wsdl:output name=\\"setWidgetPriceResponse\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name=\\"getWidgetPrice\\">
+
+         <wsdlsoap:operation soapAction=\\"\\"/>
+
+         <wsdl:input name=\\"getWidgetPriceRequest\\">
+
+            <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
+
+         </wsdl:input>
+
+         <wsdl:output name=\\"getWidgetPriceResponse\\">
 
             <wsdlsoap:body encodingStyle=\\"http://schemas.xmlsoap.org/soap/encoding/\\" namespace=\\"urn:Example6\\" use=\\"encoded\\"/>
 
@@ -114,34 +107,34 @@ exports[`ex6-widgetPrice matches 4`] = `
 "
 `;
 
-exports[`help matches 1`] = `
+exports[`ex6-widgetPrice matches: stderr 1`] = `""`;
+
+exports[`ex6-widgetPrice matches: stdout 1`] = `
+"- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
+"
+`;
+
+exports[`help matches: actual error 1`] = `
 [Error: Command failed: java -cp "axis-1_4/lib/*:axis-1_4/build/classes" org.apache.axis.wsdl.Java2WSDL --help
 ]
 `;
 
-exports[`help matches 2`] = `undefined`;
+exports[`help matches: stderr 1`] = `undefined`;
 
-exports[`help matches 3`] = `undefined`;
+exports[`help matches: stdout 1`] = `undefined`;
 
-exports[`usage matches 1`] = `
+exports[`usage matches: actual error 1`] = `
 [Error: Command failed: java -cp "axis-1_4/lib/*:axis-1_4/build/classes" org.apache.axis.wsdl.Java2WSDL 
 ]
 `;
 
-exports[`usage matches 2`] = `undefined`;
+exports[`usage matches: stderr 1`] = `undefined`;
 
-exports[`usage matches 3`] = `undefined`;
+exports[`usage matches: stdout 1`] = `undefined`;
 
-exports[`widgetPrice matches 1`] = `undefined`;
+exports[`widgetPrice matches: actual error 1`] = `undefined`;
 
-exports[`widgetPrice matches 2`] = `
-"- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
-"
-`;
-
-exports[`widgetPrice matches 3`] = `""`;
-
-exports[`widgetPrice matches 4`] = `
+exports[`widgetPrice matches: file tmp/wp.wsdl 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
 
@@ -218,16 +211,16 @@ exports[`widgetPrice matches 4`] = `
 "
 `;
 
-exports[`widgetPriceOtherFile matches 1`] = `undefined`;
+exports[`widgetPrice matches: stderr 1`] = `""`;
 
-exports[`widgetPriceOtherFile matches 2`] = `
+exports[`widgetPrice matches: stdout 1`] = `
 "- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
 "
 `;
 
-exports[`widgetPriceOtherFile matches 3`] = `""`;
+exports[`widgetPriceOtherFile matches: actual error 1`] = `undefined`;
 
-exports[`widgetPriceOtherFile matches 4`] = `
+exports[`widgetPriceOtherFile matches: file tmp/wp-other.wsdl 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <wsdl:definitions targetNamespace=\\"urn:Example6\\" xmlns:apachesoap=\\"http://xml.apache.org/xml-soap\\" xmlns:impl=\\"urn:Example6\\" xmlns:intf=\\"urn:Example6\\" xmlns:soapenc=\\"http://schemas.xmlsoap.org/soap/encoding/\\" xmlns:wsdl=\\"http://schemas.xmlsoap.org/wsdl/\\" xmlns:wsdlsoap=\\"http://schemas.xmlsoap.org/wsdl/soap/\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
 
@@ -304,20 +297,27 @@ exports[`widgetPriceOtherFile matches 4`] = `
 "
 `;
 
-exports[`widgetPriceStyleDOCUMENT matches 1`] = `
+exports[`widgetPriceOtherFile matches: stderr 1`] = `""`;
+
+exports[`widgetPriceOtherFile matches: stdout 1`] = `
+"- Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
+"
+`;
+
+exports[`widgetPriceStyleDOCUMENT matches: actual error 1`] = `
 [Error: Command failed: java -cp "axis-1_4/lib/*:axis-1_4/build/classes" org.apache.axis.wsdl.Java2WSDL -o tmp/wp-other.wsdl -l"http://localhost:8080/axis/services/WidgetPrice" -n "urn:Example6" -p"samples.userguide.example" --style DOCUMENT "urn:Example6" org.apache.axis.wsdl.Java2WSDL
 ]
 `;
 
-exports[`widgetPriceStyleDOCUMENT matches 2`] = `undefined`;
+exports[`widgetPriceStyleDOCUMENT matches: stderr 1`] = `undefined`;
 
-exports[`widgetPriceStyleDOCUMENT matches 3`] = `undefined`;
+exports[`widgetPriceStyleDOCUMENT matches: stdout 1`] = `undefined`;
 
-exports[`widgetPriceStyleWSDL matches 1`] = `
+exports[`widgetPriceStyleWSDL matches: actual error 1`] = `
 [Error: Command failed: java -cp "axis-1_4/lib/*:axis-1_4/build/classes" org.apache.axis.wsdl.Java2WSDL -o tmp/wp-other.wsdl -l"http://localhost:8080/axis/services/WidgetPrice" -n "urn:Example6" -p"samples.userguide.example" --style RPC "urn:Example6" org.apache.axis.wsdl.Java2WSDL
 ]
 `;
 
-exports[`widgetPriceStyleWSDL matches 2`] = `undefined`;
+exports[`widgetPriceStyleWSDL matches: stderr 1`] = `undefined`;
 
-exports[`widgetPriceStyleWSDL matches 3`] = `undefined`;
+exports[`widgetPriceStyleWSDL matches: stdout 1`] = `undefined`;
