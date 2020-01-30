@@ -40,8 +40,8 @@ it.each(tests)("%s matches", async (id, { options, files }) => {
   expect(stdout).toMatchSnapshot();
   expect(stderr).toMatchSnapshot();
   for (const filename of files) {
-    await expect(
-      fs.readFile(filename, { encoding: "utf8" })
-    ).resolves.toMatchSnapshot();
+    const xml = await fs.readFile(filename, { encoding: "utf8" });
+    const withoutComments = xml.replace(/<!--[\s\S\n]*?-->/gm, "");
+    expect(withoutComments).toMatchSnapshot();
   }
 });
