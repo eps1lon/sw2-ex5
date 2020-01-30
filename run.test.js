@@ -6,6 +6,18 @@ const { promisify } = require("util");
 
 const exec = promisify(child_process.exec);
 
+const useModified = true;
+/**
+ * modified outputs as _impl.wsdl
+ * function removes this suffix in order to diff the files
+ */
+function getModifiedFileName(filename) {
+  const basename = path.basename(filename, ".wsdl");
+  const expectedBasename = `${basename}_impl`;
+
+  return path.join(path.dirname(filename), `${expectedBasename}.wsdl`);
+}
+
 const tests = [
   [
     "widgetPrice",
@@ -19,6 +31,20 @@ const tests = [
         `org.apache.axis.wsdl.Java2WSDL`
       ],
       files: ["tmp/wp.wsdl"]
+    }
+  ],
+  [
+    "widgetPriceOtherFile",
+    {
+      options: [
+        `-o tmp/wp-other.wsdl`,
+        `-l"http://localhost:8080/axis/services/WidgetPrice"`,
+        `-n "urn:Example6"`,
+        `-p"samples.userguide.example"`,
+        `"urn:Example6"`,
+        `org.apache.axis.wsdl.Java2WSDL`
+      ],
+      files: ["tmp/wp-other.wsdl"]
     }
   ]
 ];
@@ -45,8 +71,12 @@ it.each(tests)("%s matches", async (id, { options, files }) => {
 
   expect(stdout).toMatchSnapshot();
   expect(stderr).toMatchSnapshot();
-  for (const filename of files) {
-    const xml = await fs.readFile(filename, { encoding: "utf8" });
+  for (const expectedFile of files) {
+    const actualFileName = useModified
+      ? getModifiedFileName(expectedFile)
+      : expectedFile;
+    const xml = await fs.readFile(actualFileName, { encoding: "utf8" });
+
     const withoutComments = xml.replace(/<!--[\s\S\n]*?-->/gm, "");
     expect(withoutComments).toMatchSnapshot();
   }
