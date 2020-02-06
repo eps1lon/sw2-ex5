@@ -1,6 +1,5 @@
 const child_process = require("child_process");
 const fs = require("fs").promises;
-const lodash = require("lodash");
 const path = require("path");
 const rimraf = require("rimraf");
 const { promisify } = require("util");
