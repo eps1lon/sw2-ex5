@@ -1,10 +1,12 @@
 # SWT2 excercise 5
 
+## Prerequisites
+- `node@^12.4` (`nvm use` for best compatibility)
+- `java` (tested with `OpenJDK Runtime Environment (build 11.0.6+10-post-Ubuntu-1ubuntu118.04.1)`)
+
 ## Getting started
 
 ```bash
-# make sure you have node ^12.14.1
-# e.g. `nvm use`
 $ yarn
 $ yarn start
 ```
